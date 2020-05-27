@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  kurento-demo:
+    container_name: kurento-mirror-demo
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - kurento-svc
+    network_mode: host
+
+  kurento-svc:
+    container_name: kurento-media-service
+    image: kurento/kurento-media-server:latest
+    network_mode: host
+
